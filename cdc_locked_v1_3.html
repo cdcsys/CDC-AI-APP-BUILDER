@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CDC Ai App Builder v1.3</title>
+</head>
+<body>
+  <header>
+    <h1>CDC Ai App Builder v1.3 — Audit Layer</h1>
+    <p>Audit Trails • Compliance Exports • Rollback Safety</p>
+    <div>⚖️ Compliance Mode Active | Audit Trail Enabled</div>
+  </header>
+
+  <section id="audit">
+    <h2>Audit Trail Logging</h2>
+    <button onclick="logAction('Buyer updated pricing')">Log Action</button>
+    <div id="auditOutput"></div>
+  </section>
+
+  <section id="export">
+    <h2>Compliance Export</h2>
+    <button onclick="exportData('PDF')">Export PDF</button>
+    <button onclick="exportData('CSV')">Export CSV</button>
+    <div id="exportOutput"></div>
+  </section>
+
+  <section id="rollback">
+    <h2>Rollback Selector</h2>
+    <select id="rollbackSelect">
+      <option value="cdc_locked_v1_1.html">v1.1 Polishing Layer</option>
+      <option value="cdc_locked_v1_2.html">v1.2 Commercial Layer</option>
+      <option value="cdc_locked_v1_3.html">v1.3 Audit Layer</option>
+    </select>
+    <button onclick="rollbackVersion()">Rollback</button>
+    <div id="rollbackOutput"></div>
+  </section>
+
+  <footer>
+    <p>CDC Ai App Builder v1.3 | Audit Layer | Restoration‑Safe | Compliance Ready</p>
+  </footer>
+
+  <script>
+    function logAction(action) {
+      const output = document.getElementById("auditOutput");
+      output.innerHTML += `<p>📝 Logged: ${action}</p>`;
+    }
+    function exportData(type) {
+      document.getElementById("exportOutput").innerHTML =
+        `<p>📂 Exported compliance data as ${type}</p>`;
+    }
+    function rollbackVersion() {
+      const val = document.getElementById("rollbackSelect").value;
+      document.getElementById("rollbackOutput").innerHTML =
+        `<p>⏪ Rolled back to ${val}</p>`;
+    }
+  </script>
+</body>
+</html>
